@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Fitness Planner</title>
+</head>
+<body>
+    <h2>Personalized Workout & Diet Planner</h2>
+
+    <form action="/result" method="post">
+        Age: <input type="number" name="age"><br><br>
+        Weight (kg): <input type="number" name="weight"><br><br>
+        Height (cm): <input type="number" name="height"><br><br>
+
+        Activity Level:
+        <select name="activity">
+            <option value="1">Low</option>
+            <option value="2">Moderate</option>
+            <option value="3">High</option>
+        </select><br><br>
+
+        Goal:
+        <select name="goal">
+            <option>Weight Loss</option>
+            <option>Muscle Gain</option>
+            <option>Maintenance</option>
+        </select><br><br>
+
+        <button type="submit">Generate Plan</button>
+    </form>
+</body>
+</html>
