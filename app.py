@@ -1,47 +1,24 @@
-import streamlit as st
-from model import predict_calories
-from utils import get_workout, get_diet
+def get_workout(goal, resource):
 
-st.set_page_config(page_title="AI Fitness Planner", page_icon="💪")
+    if goal == "Weight Loss":
+        return f"{resource} Cardio + HIIT 4-5 days/week"
+    
+    elif goal == "Muscle Gain":
+        return f"{resource} Strength Training 5 days/week"
+    
+    else:
+        return f"{resource} Light cardio + yoga 3-4 days/week"
 
-st.title("💪 Personalized Workout & Diet Planner")
-st.write("Enter your details to get AI-based fitness plan")
 
-# User Inputs
-age = st.number_input("Age", min_value=10, max_value=100, step=1)
-weight = st.number_input("Weight (kg)", min_value=30.0, max_value=200.0, step=0.5)
-height = st.number_input("Height (cm)", min_value=100.0, max_value=250.0, step=0.5)
+def get_diet(goal, culture, budget):
 
-activity = st.selectbox(
-    "Activity Level",
-    [1, 2, 3, 4, 5],
-    format_func=lambda x: {
-        1: "Sedentary",
-        2: "Lightly Active",
-        3: "Moderately Active",
-        4: "Very Active",
-        5: "Super Active"
-    }[x]
-)
+    base = f"{culture} | {budget}\n"
 
-goal = st.selectbox(
-    "Fitness Goal",
-    ["Weight Loss", "Muscle Gain", "Maintain Weight"]
-)
-
-if st.button("Generate Plan 🚀"):
-
-    calories = predict_calories(age, weight, height, activity)
-    workout = get_workout(goal)
-    diet = get_diet(goal)
-
-    st.success("Here is your personalized plan!")
-
-    st.subheader("🔥 Daily Calories Needed")
-    st.write(f"{calories} kcal")
-
-    st.subheader("🏋️ Recommended Workout")
-    st.write(workout)
-
-    st.subheader("🥗 Recommended Diet Plan")
-    st.write(diet)
+    if goal == "Weight Loss":
+        return base + "High protein, low carb meals with vegetables and pulses."
+    
+    elif goal == "Muscle Gain":
+        return base + "High protein diet with paneer/chicken, rice, dal."
+    
+    else:
+        return base + "Balanced diet with roti, sabzi, fruits, and milk."
