@@ -1,61 +1,24 @@
-# utils.py
+def get_workout(goal, resource):
 
-def get_workout(goal):
     if goal == "Weight Loss":
-        return {
-            "Monday": "30 min Cardio + Abs workout",
-            "Tuesday": "HIIT (20 mins) + Stretching",
-            "Wednesday": "Brisk Walking (40 mins)",
-            "Thursday": "Lower Body Strength Training",
-            "Friday": "Full Body Cardio",
-            "Saturday": "Yoga + Core Workout",
-            "Sunday": "Rest Day"
-        }
-
+        return f"{resource} Cardio + HIIT 4-5 days/week"
+    
     elif goal == "Muscle Gain":
-        return {
-            "Monday": "Chest + Triceps",
-            "Tuesday": "Back + Biceps",
-            "Wednesday": "Leg Day",
-            "Thursday": "Shoulders",
-            "Friday": "Arms + Abs",
-            "Saturday": "Full Body Strength",
-            "Sunday": "Rest Day"
-        }
-
-    else:  # Maintenance
-        return {
-            "Monday": "Light Cardio (20 mins)",
-            "Tuesday": "Full Body Workout",
-            "Wednesday": "Yoga",
-            "Thursday": "Core Strength",
-            "Friday": "Light Jogging",
-            "Saturday": "Stretching",
-            "Sunday": "Rest Day"
-        }
+        return f"{resource} Strength Training 5 days/week"
+    
+    else:
+        return f"{resource} Light cardio + yoga 3-4 days/week"
 
 
-def get_diet(goal):
+def get_diet(goal, culture, budget):
+
+    base = f"{culture} | {budget}\n"
+
     if goal == "Weight Loss":
-        return {
-            "Breakfast": "Oats + Fruits + Green Tea",
-            "Lunch": "2 Chapati + Dal + Sabzi + Salad",
-            "Snack": "Nuts / Sprouts",
-            "Dinner": "Grilled Paneer / Chicken + Vegetables"
-        }
-
+        return base + "High protein, low carb meals with vegetables and pulses."
+    
     elif goal == "Muscle Gain":
-        return {
-            "Breakfast": "Eggs / Paneer + Peanut Butter Toast + Milk",
-            "Lunch": "Rice + Dal + Chicken / Paneer + Salad",
-            "Snack": "Protein Shake + Banana",
-            "Dinner": "Chapati + Sabzi + Curd"
-        }
-
-    else:  # Maintenance
-        return {
-            "Breakfast": "Poha / Upma + Tea",
-            "Lunch": "Balanced Indian Thali",
-            "Snack": "Fruits",
-            "Dinner": "Light Chapati + Sabzi"
-        }
+        return base + "High protein diet with paneer/chicken, rice, dal."
+    
+    else:
+        return base + "Balanced diet with roti, sabzi, fruits, and milk."
