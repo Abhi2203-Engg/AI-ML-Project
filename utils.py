@@ -1,15 +1,24 @@
-def get_workout(goal):
-    if goal == "Weight Loss":
-        return "Cardio (30 mins), HIIT, Abs workout"
-    elif goal == "Muscle Gain":
-        return "Strength training, Push-Pull-Legs split"
-    else:
-        return "Light cardio, Full body workout"
+def get_workout(goal, resource):
 
-def get_diet(goal):
     if goal == "Weight Loss":
-        return "High protein, Low carb diet"
+        return f"{resource} Cardio + HIIT 4-5 days/week"
+    
     elif goal == "Muscle Gain":
-        return "High protein, Calorie surplus diet"
+        return f"{resource} Strength Training 5 days/week"
+    
     else:
-        return "Balanced diet with proteins & carbs"
+        return f"{resource} Light cardio + yoga 3-4 days/week"
+
+
+def get_diet(goal, culture, budget):
+
+    base = f"{culture} | {budget}\n"
+
+    if goal == "Weight Loss":
+        return base + "High protein, low carb meals with vegetables and pulses."
+    
+    elif goal == "Muscle Gain":
+        return base + "High protein diet with paneer/chicken, rice, dal."
+    
+    else:
+        return base + "Balanced diet with roti, sabzi, fruits, and milk."
